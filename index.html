@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaAI Studio — Commercial AI SaaS Suite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="logo-icon">⚡</div>
+        <div>
+          <h1>NovaAI Studio</h1>
+          <span>Commercial SaaS v2.0</span>
+        </div>
+      </div>
+
+      <nav class="tool-menu" id="toolMenu">
+        <button class="tool-btn active" data-tool="blog">📝 Blog Article Writer</button>
+        <button class="tool-btn" data-tool="youtube">🎬 YouTube Script Pro</button>
+        <button class="tool-btn" data-tool="social">📱 Viral Social Captions</button>
+        <button class="tool-btn" data-tool="email">✉️ Cold Email Generator</button>
+        <button class="tool-btn" data-tool="summary">📚 Smart Summarizer</button>
+        <button class="tool-btn" data-tool="code">💻 Code Debugger Pro</button>
+        <button class="tool-btn" data-tool="ads">📢 Ad Copywriter</button>
+        <button class="tool-btn" data-tool="seo">🔍 SEO Keyword Finder</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="openSettingsBtn" class="settings-btn">⚙️ API Key Settings</button>
+        <button id="themeToggleBtn" class="theme-btn">☀️ Light Mode</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button id="menuToggle" class="menu-toggle">☰</button>
+        <h2 id="currentToolTitle">📝 Blog Article Writer</h2>
+        <span id="apiStatus" class="status-badge offline">API Key Missing</span>
+      </header>
+
+      <div class="workspace">
+        <section class="card input-card">
+          <p id="toolDesc" class="tool-desc">Generate SEO-optimized, high-ranking blog posts in seconds.</p>
+
+          <label for="topicInput">Topic / Prompt Details</label>
+          <textarea id="topicInput" rows="5" placeholder="e.g., 5 Best AI Side Hustles to Start in 2026..."></textarea>
+
+          <div class="options-grid">
+            <div class="field">
+              <label for="toneSelect">Tone</label>
+              <select id="toneSelect">
+                <option value="Professional">Professional</option>
+                <option value="Viral & Engaging">Viral & Engaging</option>
+                <option value="Friendly">Friendly</option>
+                <option value="Persuasive">Persuasive</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="lengthSelect">Length</label>
+              <select id="lengthSelect">
+                <option value="Medium (300-500 words)">Medium</option>
+                <option value="Short (100-200 words)">Short</option>
+                <option value="Long & Detailed (800+ words)">Long</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="langSelect">Language</label>
+              <select id="langSelect">
+                <option value="English">English</option>
+                <option value="Urdu">Urdu</option>
+                <option value="Persian/Dari">Persian / Dari</option>
+                <option value="Arabic">Arabic</option>
+              </select>
+            </div>
+          </div>
+
+          <button id="generateBtn" class="primary-btn">✨ Generate AI Content</button>
+        </section>
+
+        <section class="card output-card">
+          <div class="output-header">
+            <div>
+              <h3>Generated Output</h3>
+              <span id="wordCount" class="word-counter">0 words | 0 chars</span>
+            </div>
+            <div class="output-actions">
+              <button id="copyBtn" class="action-btn">📋 Copy</button>
+              <button id="downloadTxtBtn" class="action-btn">⬇️ .TXT</button>
+              <button id="downloadHtmlBtn" class="action-btn">🌐 .HTML</button>
+              <button id="clearBtn" class="action-btn">🗑️</button>
+            </div>
+          </div>
+          <div id="outputBox" class="output-box">
+            <p class="placeholder-text">Your commercial-grade AI result will appear here...</p>
+          </div>
+        </section>
+      </div>
+
+      <section class="card history-card">
+        <div class="output-header">
+          <h3>🕒 Saved History (Last 15)</h3>
+          <button id="clearHistoryBtn" class="action-btn">Clear All</button>
+        </div>
+        <div id="historyList" class="history-list">
+          <p class="placeholder-text">No saved generations yet.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>⚙️ Gemini API Configuration</h3>
+      <p>Paste your Google Gemini API Key below (saved securely in localStorage).</p>
+      <label for="apiKeyInput">API Key</label>
+      <input type="password" id="apiKeyInput" placeholder="AIzaSy..." />
+      <div class="modal-actions">
+        <button id="saveKeyBtn" class="primary-btn">Save Key</button>
+        <button id="closeModalBtn" class="action-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
